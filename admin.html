@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff portal | Pawsitive Belize</title>
+  <meta name="description" content="Staff portal for Pawsitive Belize.">
+  <link rel="icon" href="assets/icons/pawsitive-belize-icon.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#board">Skip to intake board</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icons/pawsitive-belize-icon.png" alt="Pawsitive Belize">
+        <span class="brand-text">
+          <strong>Pawsitive Belize</strong>
+          <span>Staff portal · Belmopan</span>
+        </span>
+      </a>
+      <button class="btn-menu" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="index.html">Return to public site</a>
+        <a href="#board">Intake board</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="wrap">
+      <div class="admin-toolbar">
+        <div>
+          <h1>Shelter staff board</h1>
+          <p class="meta">Intake, medical and meal tracking, and public listing.</p>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          <button type="button" class="btn btn-primary" data-open-intake>New intake</button>
+          <button type="button" class="btn btn-ghost" data-reset>Reset sample data</button>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="k">Intake queue</div>
+          <div class="v" id="stat-queue">0</div>
+          <div class="s">Waiting for assessment</div>
+        </div>
+        <div class="metric">
+          <div class="k">Medical / meals</div>
+          <div class="v" id="stat-medical">0</div>
+          <div class="s">Active care tracking</div>
+        </div>
+        <div class="metric">
+          <div class="k">Care funds</div>
+          <div class="v" id="stat-funds">$0 BZD</div>
+          <div class="s" id="stat-funds-sub">Local totals only</div>
+        </div>
+        <div class="metric">
+          <div class="k">Listed publicly</div>
+          <div class="v" id="stat-ready">0</div>
+          <div class="s">Visible on the public site in this browser</div>
+        </div>
+      </div>
+
+      <div class="kanban" id="board">
+        <section class="kanban-col" aria-labelledby="col1-title">
+          <h2 id="col1-title"><span class="dot dot-1"></span>1. Intake queue <span id="count-col1">0</span></h2>
+          <div class="kanban-list" id="kanban-col-1"></div>
+        </section>
+        <section class="kanban-col" aria-labelledby="col2-title">
+          <h2 id="col2-title"><span class="dot dot-2"></span>2. Medical and meal tracking <span id="count-col2">0</span></h2>
+          <div class="kanban-list" id="kanban-col-2"></div>
+        </section>
+        <section class="kanban-col" aria-labelledby="col3-title">
+          <h2 id="col3-title"><span class="dot dot-3"></span>3. Ready and public listing <span id="count-col3">0</span></h2>
+          <div class="kanban-list" id="kanban-col-3"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer tex-teal">
+    <div class="wrap">
+      <p><a href="index.html">Return to the public site</a> · Pawsitive Belize staff portal</p>
+      <p class="legal">© 2026 Pawsitive Belize.</p>
+    </div>
+  </footer>
+
+  <div class="modal-root" id="intake-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="intake-title">
+      <div class="modal-head">
+        <h2 id="intake-title">New staff intake</h2>
+        <button type="button" class="icon-btn" data-close="intake-modal" aria-label="Close">×</button>
+      </div>
+      <form id="intake-form" class="form">
+        <label for="input-name">Cat name or tag</label>
+        <input id="input-name" type="text" required maxlength="80" placeholder="e.g. Nia">
+        <div class="form-row">
+          <div>
+            <label for="input-breed">Breed or type</label>
+            <input id="input-breed" type="text" maxlength="80" placeholder="Domestic shorthair">
+          </div>
+          <div>
+            <label for="input-gender">Gender</label>
+            <input id="input-gender" type="text" maxlength="40" placeholder="Female">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="input-age">Age</label>
+            <input id="input-age" type="text" maxlength="40" placeholder="2 years">
+          </div>
+          <div>
+            <label for="input-location">Rescue area</label>
+            <select id="input-location">
+              <option>San Martin Neighborhood</option>
+              <option>Salvapan Area Intake</option>
+              <option>Belmopan Civic Center</option>
+              <option>Forest Drive Rescue</option>
+              <option>Maya Mopan Area</option>
+              <option>Belmopan Central</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="photo-picker" id="intake-photo-picker">
+          <legend>Cat photo</legend>
+          <p class="meta" id="intake-photo-hint"><strong>Take photo</strong> opens the camera on a phone. On a computer it typically opens the file chooser; a webcam may appear only if the browser offers one.</p>
+          <div class="photo-preview-wrap">
+            <img id="intake-photo-preview" alt="Cat photo preview" src="assets/cats/placeholder.svg">
+            <p class="meta" id="intake-photo-caption">No photo yet.</p>
+          </div>
+          <div class="photo-actions">
+            <label class="btn btn-primary btn-sm" for="intake-photo-capture">Take photo</label>
+            <input class="visually-hidden" id="intake-photo-capture" type="file" accept="image/*" capture="environment">
+            <label class="btn btn-ghost btn-sm" for="intake-photo-upload">Upload photo</label>
+            <input class="visually-hidden" id="intake-photo-upload" type="file" accept="image/*">
+            <button type="button" class="btn btn-ghost btn-sm" id="intake-photo-remove" hidden>Remove photo</button>
+          </div>
+          <p class="notice" id="intake-photo-error" hidden></p>
+        </fieldset>
+        <label>Initial medical notes</label>
+        <div class="checklist">
+          <label class="check"><input id="med-ticks" type="checkbox" checked> Tick and flea treatment required</label>
+          <label class="check"><input id="med-vaccine" type="checkbox" checked> Vaccination pending</label>
+        </div>
+        <label for="input-med-note">Other medical note</label>
+        <input id="input-med-note" type="text" maxlength="160" placeholder="Optional">
+        <label for="input-meal-goal">Weekly meal / care fund goal (BZD)</label>
+        <input id="input-meal-goal" type="number" min="0" step="1" value="40">
+        <fieldset class="tag-picker">
+          <legend>Profile tags</legend>
+          <p class="meta" id="intake-tags-hint">Optional badges shown on staff and public cards. Separate from board column, public status, and location. Select all that apply.</p>
+          <div class="tag-options" role="group" aria-describedby="intake-tags-hint">
+            <label class="check"><input type="checkbox" name="intake-tags" value="Urgent Medical"> Urgent Medical</label>
+            <label class="check"><input type="checkbox" name="intake-tags" value="Kitten Nursery"> Kitten Nursery</label>
+            <label class="check"><input type="checkbox" name="intake-tags" value="Fostered"> Fostered</label>
+            <label class="check"><input type="checkbox" name="intake-tags" value="Paired Adoption"> Paired Adoption</label>
+          </div>
+        </fieldset>
+        <label for="input-story">Short intake story (optional)</label>
+        <textarea id="input-story" rows="2" maxlength="400"></textarea>
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" data-close="intake-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Register intake</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-root" id="edit-modal" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="edit-title">
+      <div class="modal-head">
+        <h2 id="edit-title">Edit record and public listing</h2>
+        <button type="button" class="icon-btn" data-close="edit-modal" aria-label="Close">×</button>
+      </div>
+      <form id="edit-form" class="form">
+        <div class="form-row">
+          <div>
+            <label for="edit-name">Name</label>
+            <input id="edit-name" type="text" required maxlength="80">
+          </div>
+          <div>
+            <label for="edit-breed">Breed</label>
+            <input id="edit-breed" type="text" maxlength="80">
+          </div>
+        </div>
+        <fieldset class="photo-picker" id="edit-photo-picker">
+          <legend>Cat photo</legend>
+          <p class="meta" id="edit-photo-hint"><strong>Take photo</strong> opens the camera on a phone. On a computer it typically opens the file chooser; a webcam may appear only if the browser offers one.</p>
+          <div class="photo-preview-wrap">
+            <img id="edit-photo-preview" alt="Cat photo preview" src="assets/cats/placeholder.svg">
+            <p class="meta" id="edit-photo-caption">No photo yet.</p>
+          </div>
+          <div class="photo-actions">
+            <label class="btn btn-primary btn-sm" for="edit-photo-capture">Take photo</label>
+            <input class="visually-hidden" id="edit-photo-capture" type="file" accept="image/*" capture="environment">
+            <label class="btn btn-ghost btn-sm" for="edit-photo-upload">Upload photo</label>
+            <input class="visually-hidden" id="edit-photo-upload" type="file" accept="image/*">
+            <button type="button" class="btn btn-ghost btn-sm" id="edit-photo-remove" hidden>Remove photo</button>
+          </div>
+          <p class="notice" id="edit-photo-error" hidden></p>
+        </fieldset>
+        <div class="form-row">
+          <div>
+            <label for="edit-gender">Gender</label>
+            <input id="edit-gender" type="text" maxlength="40">
+          </div>
+          <div>
+            <label for="edit-age">Age</label>
+            <input id="edit-age" type="text" maxlength="40">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="edit-location">Location</label>
+            <select id="edit-location">
+              <option>San Martin Neighborhood</option>
+              <option>Salvapan Area Intake</option>
+              <option>Belmopan Civic Center</option>
+              <option>Forest Drive Rescue</option>
+              <option>Maya Mopan Area</option>
+              <option>Belmopan Central</option>
+            </select>
+          </div>
+          <div>
+            <label for="edit-status">Public status</label>
+            <select id="edit-status">
+              <option>Ready for Adoption</option>
+              <option>Urgent Medical</option>
+              <option>Kitten Nursery</option>
+              <option>Fostered</option>
+              <option>Intake</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="edit-column">Board column</label>
+            <select id="edit-column">
+              <option value="1">1. Intake</option>
+              <option value="2">2. Medical and meals</option>
+              <option value="3">3. Ready / public</option>
+            </select>
+          </div>
+          <div>
+            <label for="edit-goal">Care fund goal (BZD)</label>
+            <input id="edit-goal" type="number" min="0" step="1">
+          </div>
+        </div>
+        <label for="edit-funded">Care fund raised (BZD)</label>
+        <input id="edit-funded" type="number" min="0" step="1">
+        <label for="edit-medical">Medical notes</label>
+        <textarea id="edit-medical" rows="2" maxlength="400"></textarea>
+        <fieldset class="tag-picker">
+          <legend>Profile tags</legend>
+          <p class="meta" id="edit-tags-hint">Optional badges shown on staff and public cards. Separate from board column, public status, and location. Select all that apply.</p>
+          <div class="tag-options" role="group" aria-describedby="edit-tags-hint">
+            <label class="check"><input type="checkbox" name="edit-tags" value="Urgent Medical"> Urgent Medical</label>
+            <label class="check"><input type="checkbox" name="edit-tags" value="Kitten Nursery"> Kitten Nursery</label>
+            <label class="check"><input type="checkbox" name="edit-tags" value="Fostered"> Fostered</label>
+            <label class="check"><input type="checkbox" name="edit-tags" value="Paired Adoption"> Paired Adoption</label>
+          </div>
+        </fieldset>
+        <label for="edit-story">Story</label>
+        <textarea id="edit-story" rows="3" maxlength="600"></textarea>
+        <label class="check"><input id="edit-listed" type="checkbox"> List this cat on the public site</label>
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" data-close="edit-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-root" id="adoption-apps-modal" aria-hidden="true">
+    <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="adoption-apps-title">
+      <div class="modal-head">
+        <div>
+          <h2 id="adoption-apps-title">Adoption requests</h2>
+          <p class="meta" id="adoption-apps-cat">Select a cat notice to view requests.</p>
+        </div>
+        <button type="button" class="icon-btn" data-close="adoption-apps-modal" aria-label="Close">×</button>
+      </div>
+      <div id="adoption-apps-list"></div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" data-close="adoption-apps-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/photo.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
