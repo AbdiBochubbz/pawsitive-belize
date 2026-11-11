@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Cat photo placeholder">
+  <rect width="800" height="600" fill="#F4F1EC"/>
+  <circle cx="400" cy="260" r="90" fill="#E7E2DA"/>
+  <ellipse cx="400" cy="430" rx="140" ry="80" fill="#E7E2DA"/>
+  <path d="M320 230 L300 160 L350 210 Z" fill="#D6D3D1"/>
+  <path d="M480 230 L500 160 L450 210 Z" fill="#D6D3D1"/>
+</svg>

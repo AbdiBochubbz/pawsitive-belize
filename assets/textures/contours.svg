@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280" aria-hidden="true">
+  <!-- Original repeating contour-line texture for Pawsitive Belize teal panels. -->
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="1.1" opacity="0.22" d="M20 210c30-8 48-28 70-26 28 2 40 28 68 26 26-2 40-24 70-22 18 1 32 10 46 8"/>
+    <path stroke-width="1.1" opacity="0.2" d="M8 168c28-14 58-8 86-18 30-10 44-32 78-28 26 3 38 22 66 20 16-1 28-9 42-7"/>
+    <path stroke-width="1" opacity="0.18" d="M-4 130c36-10 62 8 96-6 34-14 52-36 90-30 24 4 36 20 62 16"/>
+    <path stroke-width="1" opacity="0.16" d="M30 92c24-16 54-6 80-20 32-16 50-10 78 4 22 11 40 6 64-4 16-6 28-4 40 2"/>
+    <path stroke-width="0.9" opacity="0.2" d="M12 246c40-6 66-22 104-16 28 4 40 20 72 16 30-4 44-20 76-16"/>
+    <ellipse cx="86" cy="118" rx="36" ry="22" opacity="0.16" stroke-width="1" transform="rotate(-18 86 118)"/>
+    <ellipse cx="86" cy="118" rx="24" ry="13" opacity="0.2" stroke-width="1" transform="rotate(-18 86 118)"/>
+    <ellipse cx="86" cy="118" rx="12" ry="6" opacity="0.22" stroke-width="1" transform="rotate(-18 86 118)"/>
+    <ellipse cx="188" cy="64" rx="44" ry="26" opacity="0.15" stroke-width="1" transform="rotate(12 188 64)"/>
+    <ellipse cx="188" cy="64" rx="30" ry="16" opacity="0.2" stroke-width="1" transform="rotate(12 188 64)"/>
+    <ellipse cx="188" cy="64" rx="16" ry="8" opacity="0.22" stroke-width="1" transform="rotate(12 188 64)"/>
+    <ellipse cx="210" cy="190" rx="40" ry="24" opacity="0.15" stroke-width="1" transform="rotate(-8 210 190)"/>
+    <ellipse cx="210" cy="190" rx="26" ry="14" opacity="0.2" stroke-width="1" transform="rotate(-8 210 190)"/>
+    <ellipse cx="52" cy="48" rx="22" ry="12" opacity="0.16" stroke-width="1" transform="rotate(22 52 48)"/>
+    <path stroke-width="0.9" opacity="0.14" d="M140 250c18-40 8-70 22-108 10-26 28-36 26-70"/>
+  </g>
+</svg>

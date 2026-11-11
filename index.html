@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pawsitive Belize</title>
+  <meta name="description" content="Pawsitive Belize, a cat rescue site set in Belmopan. Payments and records are simulated.">
+  <link rel="icon" href="assets/icons/pawsitive-belize-icon.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#cats-section">Skip to resident cats</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icons/pawsitive-belize-icon.png" alt="Pawsitive Belize">
+        <span class="brand-text">
+          <strong>Pawsitive Belize</strong>
+          <span>Cat rescue prototype · Belmopan</span>
+        </span>
+      </a>
+      <button class="btn-menu" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav" id="site-nav">
+        <a href="#cats-section">Residents</a>
+        <a href="#care-fund">Care fund</a>
+        <a href="#about">About</a>
+        <a href="#fav-drawer" data-open-saved>Saved cats <span id="fav-count">0</span></a>
+        <a class="nav-quiet" href="admin.html">Staff portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Belmopan · Cat rescue prototype</p>
+        <h1>Find a cat. Learn their story. Sponsor their care.</h1>
+        <p class="lede">Pawsitive Belize helps you browse resident cats, follow a simulated sponsorship, or try a practice adoption form — no real payments or personal data are collected.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cats-section">Meet the residents</a>
+          <a class="btn btn-accent" href="#care-fund">Support the care fund</a>
+        </div>
+      </div>
+      <dl class="stats tex-teal">
+        <div><dd id="stat-donated-pool">$3,420 BZD</dd><dt>Funds raised</dt></div>
+        <div><dd id="stat-cats-rescued">114</dd><dt>Cats rescued</dt></div>
+        <div><dd id="stat-meals-provided">1,850+</dd><dt>Meals provided</dt></div>
+        <div><dd id="stat-adopted">78</dd><dt>Forever homes</dt></div>
+        <p class="note" id="urgent-need"><strong>Sample figures</strong> — not official shelter records.</p>
+      </dl>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="cats-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Resident cats</h2>
+            <p>Every profile below is sample data for a single Belmopan shelter concept.</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Filter by status">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">All cats</button>
+            <button type="button" class="chip" data-filter="Ready for Adoption" aria-pressed="false">Ready to adopt</button>
+            <button type="button" class="chip" data-filter="Urgent Medical" aria-pressed="false">Needs care</button>
+            <button type="button" class="chip" data-filter="Kitten Nursery" aria-pressed="false">Kitten nursery</button>
+            <button type="button" class="chip" data-filter="Fostered" aria-pressed="false">In foster</button>
+          </div>
+          <div class="search-row">
+            <label class="visually-hidden" for="search-input" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Search cats</label>
+            <input id="search-input" type="search" placeholder="Search by name, breed, story, or Belmopan area">
+            <label class="visually-hidden" for="location-select" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Filter by area</label>
+            <select id="location-select">
+              <option value="">All Belmopan rescue areas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-cards" id="cat-cards-container"></div>
+      </div>
+    </section>
+
+    <section class="section" id="care-fund">
+      <div class="wrap">
+        <div class="fund-panel">
+          <p class="eyebrow">General operations fund</p>
+          <h2>Support care for cats at the Belmopan shelter.</h2>
+          <p class="lede">Choose a one-time or monthly amount in BZD. No card details are requested and no payment is processed.</p>
+          <div class="tiers" role="group" aria-label="Donation amounts">
+            <button type="button" class="tier" data-open-donate data-tier="10">$10</button>
+            <button type="button" class="tier" data-open-donate data-tier="25" aria-pressed="true">$25</button>
+            <button type="button" class="tier" data-open-donate data-tier="50">$50</button>
+            <button type="button" class="tier" data-open-donate data-tier="100">$100</button>
+            <button type="button" class="btn btn-primary" data-open-donate>Open donation</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>About this Belmopan prototype</h2>
+            <p>Mission copy for this prototype. Facilities and hours below are sample text.</p>
+          </div>
+        </div>
+        <div class="about-grid">
+          <article>
+            <h3>Medical and isolation</h3>
+            <p>A quiet space for newly arrived cats who need parasite treatment, eye care, or a careful first exam.</p>
+          </article>
+          <article>
+            <h3>Open cattery</h3>
+            <p>An enclosed area where healthy residents can climb, rest, and meet prospective adopters.</p>
+          </article>
+          <article>
+            <h3>Visiting hours</h3>
+            <p>Monday–Friday 9:00–16:30, Saturday 9:00–13:00. Sunday closed except arranged foster pickups.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer tex-teal">
+    <div class="wrap footer-grid">
+      <div>
+        <h2>Pawsitive Belize</h2>
+        <p>A CMPS3141 HCI prototype for a cat rescue concept in Belmopan, Cayo District.</p>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <p><a href="#cats-section">Resident cats</a><br><a href="#care-fund">Care fund</a><br><a href="admin.html">Staff portal</a></p>
+      </div>
+      <div>
+        <h2>Please note</h2>
+        <p>This static site can be hosted on GitHub Pages. It is not a private or official records system.</p>
+      </div>
+    </div>
+    <div class="wrap legal">© 2026 Pawsitive Belize.</div>
+  </footer>
+
+  <div class="modal-root" id="cat-detail-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+      <div class="modal-head">
+        <h2 id="profile-title">Cat profile</h2>
+        <button type="button" class="icon-btn" data-close="cat-detail-modal" aria-label="Close">×</button>
+      </div>
+      <div id="modal-cat-content"></div>
+    </div>
+  </div>
+
+  <div class="modal-root" id="adopt-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="adopt-title">
+      <div class="modal-head">
+        <div>
+          <h2 id="adopt-title">Adoption application</h2>
+          <p class="meta" id="adopt-modal-cat-name">Adoption application</p>
+        </div>
+        <button type="button" class="icon-btn" data-close="adopt-modal" aria-label="Close">×</button>
+      </div>
+      <p class="notice" id="adopt-form-error" hidden></p>
+      <form id="adopt-form" class="form" novalidate>
+        <label for="adopt-name">Display name (optional, fictional only)</label>
+        <input id="adopt-name" type="text" autocomplete="off" maxlength="80" placeholder="Leave blank, or use a fictional name">
+        <label for="adopt-notes">Why this cat is a good match (optional, fictional only)</label>
+        <textarea id="adopt-notes" rows="3" maxlength="400" autocomplete="off" placeholder="Fictional practice text, or leave blank"></textarea>
+        <label class="check"><input id="adopt-ack" type="checkbox" required> I understand this is not a real application, and I am using a fictional display name and response.</label>
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" data-close="adopt-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-root" id="donate-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="donate-title">
+      <div class="modal-head">
+        <div>
+          <h2 id="donate-title">Care fund (simulated)</h2>
+          <p class="meta" id="donate-subtitle">Choose an amount, then confirm. Nothing is charged yet.</p>
+        </div>
+        <button type="button" class="icon-btn" data-close="donate-modal" aria-label="Close">×</button>
+      </div>
+      <div id="donate-cat-context" class="donate-cat" hidden>
+        <img id="donate-cat-img" alt="" src="assets/cats/placeholder.svg">
+        <div>
+          <strong id="donate-cat-name"></strong>
+          <p class="meta" id="donate-cat-meta"></p>
+        </div>
+      </div>
+      <p class="meta" id="donate-saved-context" hidden></p>
+      <div class="filters" role="group" aria-label="Frequency">
+        <button type="button" class="chip" data-freq="once" aria-pressed="true">One-time</button>
+        <button type="button" class="chip" data-freq="monthly" aria-pressed="false">Monthly (not actually recurring)</button>
+      </div>
+      <label id="amount-label">Select amount (BZD)</label>
+      <div class="tiers" role="group" aria-labelledby="amount-label">
+        <button type="button" class="tier" data-tier="10">$10</button>
+        <button type="button" class="tier" data-tier="15">$15</button>
+        <button type="button" class="tier" data-tier="25" aria-pressed="true">$25</button>
+        <button type="button" class="tier" data-tier="50">$50</button>
+        <button type="button" class="tier" data-tier="100">$100</button>
+        <button type="button" class="tier" data-tier="custom">Custom</button>
+      </div>
+      <div id="custom-amt-wrap" hidden>
+        <label for="custom-amt-input">Custom amount (BZD)</label>
+        <input id="custom-amt-input" class="field" type="number" min="1" step="1" value="35" inputmode="numeric">
+      </div>
+      <label id="method-label">Preferred method</label>
+      <p class="meta" style="margin:0 0 0.45rem">Visual choice only — nothing is charged or sent.</p>
+      <div class="tiers method-tiers" role="group" aria-labelledby="method-label">
+        <button type="button" class="tier" data-method="DigiWallet" aria-pressed="true">DigiWallet</button>
+        <button type="button" class="tier" data-method="Belize Bank" aria-pressed="false">Belize Bank</button>
+        <button type="button" class="tier" data-method="Card" aria-pressed="false">Card</button>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" data-close="donate-modal">Cancel</button>
+        <button type="button" class="btn btn-accent" id="confirm-donate">Confirm simulated donation</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-root" id="thankyou-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
+      <div class="modal-head">
+        <h2 id="thanks-title">Confirmation</h2>
+        <button type="button" class="icon-btn" data-close="thankyou-modal" aria-label="Close">×</button>
+      </div>
+      <p class="notice notice-ok" id="thankyou-msg"></p>
+      <p class="meta">Reference: <span id="receipt-id"></span></p>
+      <div class="form-actions">
+        <button type="button" class="btn btn-primary" data-close="thankyou-modal">Back to the site</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="drawer-root" id="fav-drawer" aria-hidden="true">
+    <div class="backdrop" data-close="fav-drawer"></div>
+    <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="saved-title">
+      <div class="modal-head">
+        <h2 id="saved-title">Saved cats</h2>
+        <button type="button" class="icon-btn" data-close="fav-drawer" aria-label="Close">×</button>
+      </div>
+      <div id="fav-drawer-content"></div>
+      <div class="drawer-footer" id="fav-donate-wrap" hidden>
+        <button type="button" class="btn btn-primary" data-sponsor-saved>Sponsor saved cats</button>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/donate.js"></script>
+  <script src="js/public.js"></script>
+</body>
+</html>
